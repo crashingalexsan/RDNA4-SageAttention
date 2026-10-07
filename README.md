@@ -82,10 +82,11 @@ SageAttention install and anything that does `from sageattention import sageattn
 Requirements: a ROCm build of torch ≥ 2.10 (TheRock / AMD wheels on Windows, ROCm wheels on Linux) and an RX 9070 /
 9060 series GPU. No Triton, FlyDSL, compiler or ROCm SDK is needed.
 
-### 1. Build the wheel
+### 1. Get the wheel
 
-The compiled kernels are checked in (`src/rdna4_sage/kernels/`), so building the wheel is plain Python packaging and
-works on Windows or Linux. Only regenerating the kernels needs the FlyDSL toolchain (see [Build the kernels](#build-the-kernels)).
+Download `sageattention-2.2.0+rdna4.0.2.1-py3-none-any.whl` from the
+[Releases page](https://github.com/crashingalexsan/RDNA4-SageAttention/releases), or build it yourself. The compiled kernels are checked in
+(`src/rdna4_sage/kernels/`), so building the wheel is plain Python packaging and works on Windows or Linux. Only regenerating the kernels needs the FlyDSL toolchain (see [Build the kernels](#build-the-kernels)).
 
 ```
 cd rdna4-sage
@@ -93,16 +94,17 @@ python -m pip wheel . -w dist --no-deps
 ```
 
 This writes `dist/sageattention-2.2.0+rdna4.0.2.1-py3-none-any.whl` (pure Python + code objects, one wheel for every
-Python version and both OSes). Skip this step if you already have the wheel.
+Python version and both OSes).
 
-### 2. Install it into the Python that runs ComfyUI
+### 2. Install it into the Python that runs ComfyUI or SD.Next
 
 ```
 python -m pip uninstall -y sageattention
 python -m pip install --no-deps dist/sageattention-2.2.0+rdna4.0.2.1-py3-none-any.whl
 ```
 
-Use ComfyUI's venv python (`venv\Scripts\python.exe` on Windows, `python_embeded\python.exe` for the portable build).
+Use the app's own python: `venv\Scripts\python.exe` (ComfyUI or SD.Next venv on Windows), `python_embeded\python.exe`
+(ComfyUI portable), or `venv/bin/python` on Linux.
 `--no-deps` keeps pip from touching your ROCm torch.
 
 ### 3. Check it
@@ -117,6 +119,7 @@ every call then runs torch SDPA.
 ### 4. Use it
 
 - ComfyUI: start with `--use-sage-attention`, as with the original SageAttention.
+- SD.Next: select Sage Attention in the attention settings (needs `+rdna4.0.2.1` or newer, see [Changelog](#changelog)).
 - Custom nodes and wrappers that import `sageattention` (KJNodes' sage patch, video wrappers, ...) pick it up as is.
 - Your own code: `from sageattention import sageattn` (see [Use](#use)).
 
@@ -209,5 +212,13 @@ python tests/bench_models.py     # per-model timings
 ```
 
 gfx1200 code objects are built from the same source but were not run on gfx1200 hardware.
+
+## Changelog
+
+- **2.2.0+rdna4.0.2.1** — Fix `RecursionError: maximum recursion depth exceeded` in apps that replace
+  `torch.nn.functional.scaled_dot_product_attention` with `sageattn` (SD.Next). The SDPA fallback for small and
+  masked calls now calls torch's attention directly instead of looping back into `sageattn`.
+- **2.2.0+rdna4.0.2.0** — First release: rename to `rdna4_sage` (torch op `torch.ops.rdna4_sage.attention`, ComfyUI
+  backend `rdna4_sage`, `RDNA4_SAGE_*` environment variables); head dims 64/96/128/256, causal, GQA, gfx1200 and gfx1201.
 
 License: Apache-2.0, see LICENSE and NOTICE.
