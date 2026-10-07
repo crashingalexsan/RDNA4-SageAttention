@@ -82,6 +82,13 @@ SageAttention install and anything that does `from sageattention import sageattn
 Requirements: a ROCm build of torch ≥ 2.10 (TheRock / AMD wheels on Windows, ROCm wheels on Linux) and an RX 9070 /
 9060 series GPU. No Triton, FlyDSL, compiler or ROCm SDK is needed.
 
+**Recommended:** a PyTorch build for ROCm 10.1 (`2.12.0`, `2.13.0` or `2.14.0` with the `+rocm10.1.0` suffix,
+available from AMD's [whl-next index](https://stable.repo.amd.com/rocm/pytorch/whl-next/)).
+
+> Note: `torch 2.12.0+rocm10.0.0` fails on RDNA4 for causal and masked scaled dot-product attention
+> (`CUDA error: invalid argument`). Because this package delegates such calls to PyTorch SDPA, it is affected as well.
+> The other ROCm 10.0 builds tested (`2.11.0` and `2.13.0`) are not affected.
+
 ### 1. Get the wheel
 
 Download `sageattention-2.2.0+rdna4.0.2.1-py3-none-any.whl` from the

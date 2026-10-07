@@ -4,6 +4,12 @@ Versions follow `2.2.0+rdna4.X.Y.Z`: `2.2.0` is the SageAttention API version th
 `X.Y.Z` is the `rdna4_sage` version. Wheels are on the
 [Releases page](https://github.com/crashingalexsan/RDNA4-SageAttention/releases).
 
+## Unreleased
+
+### Changed
+- README: recommend PyTorch builds for ROCm 10.1; note that `torch 2.12.0+rocm10.0.0` fails on RDNA4 for causal and
+  masked SDPA.
+
 ## 2.2.0+rdna4.0.2.1 — 2026-10-07
 
 ### Fixed
