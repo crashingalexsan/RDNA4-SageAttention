@@ -119,7 +119,7 @@ every call then runs torch SDPA.
 ### 4. Use it
 
 - ComfyUI: start with `--use-sage-attention`, as with the original SageAttention.
-- SD.Next: select Sage Attention in the attention settings (needs `+rdna4.0.2.1` or newer, see [Changelog](#changelog)).
+- SD.Next: select Sage Attention in the attention settings (needs `+rdna4.0.2.1` or newer, see [CHANGELOG.md](CHANGELOG.md)).
 - Custom nodes and wrappers that import `sageattention` (KJNodes' sage patch, video wrappers, ...) pick it up as is.
 - Your own code: `from sageattention import sageattn` (see [Use](#use)).
 
@@ -213,12 +213,6 @@ python tests/bench_models.py     # per-model timings
 
 gfx1200 code objects are built from the same source but were not run on gfx1200 hardware.
 
-## Changelog
-
-- **2.2.0+rdna4.0.2.1** — Fix `RecursionError: maximum recursion depth exceeded` in apps that replace
-  `torch.nn.functional.scaled_dot_product_attention` with `sageattn` (SD.Next). The SDPA fallback for small and
-  masked calls now calls torch's attention directly instead of looping back into `sageattn`.
-- **2.2.0+rdna4.0.2.0** — First release: rename to `rdna4_sage` (torch op `torch.ops.rdna4_sage.attention`, ComfyUI
-  backend `rdna4_sage`, `RDNA4_SAGE_*` environment variables); head dims 64/96/128/256, causal, GQA, gfx1200 and gfx1201.
+See [CHANGELOG.md](CHANGELOG.md) for release history.
 
 License: Apache-2.0, see LICENSE and NOTICE.
