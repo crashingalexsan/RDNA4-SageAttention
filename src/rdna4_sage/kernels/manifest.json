@@ -1,0 +1,604 @@
+{
+ "flydsl_commit": "bfa05f32f5f20f73b1b8b86c1b383e19d6829714",
+ "kv_block": 32,
+ "head_dims": [
+  64,
+  96,
+  128,
+  256
+ ],
+ "archs": {
+  "gfx1200": {
+   "attn": {
+    "d64_bf16": {
+     "file": "attn_d64_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d64_bf16_causal": {
+     "file": "attn_d64_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d64_f16": {
+     "file": "attn_d64_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d64_f16_causal": {
+     "file": "attn_d64_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_bf16": {
+     "file": "attn_d96_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_bf16_causal": {
+     "file": "attn_d96_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_f16": {
+     "file": "attn_d96_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_f16_causal": {
+     "file": "attn_d96_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_bf16": {
+     "file": "attn_d128_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_bf16_causal": {
+     "file": "attn_d128_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_f16": {
+     "file": "attn_d128_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_f16_causal": {
+     "file": "attn_d128_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_bf16": {
+     "file": "attn_d256_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_bf16_causal": {
+     "file": "attn_d256_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_f16": {
+     "file": "attn_d256_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_f16_causal": {
+     "file": "attn_d256_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    }
+   },
+   "quant_q": {
+    "d64_bf16": {
+     "file": "quant_q_d64_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d64_f16": {
+     "file": "quant_q_d64_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d96_bf16": {
+     "file": "quant_q_d96_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 128,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d96_f16": {
+     "file": "quant_q_d96_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 128,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d128_bf16": {
+     "file": "quant_q_d128_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d128_f16": {
+     "file": "quant_q_d128_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_bf16": {
+     "file": "quant_q_d256_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_f16": {
+     "file": "quant_q_d256_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    }
+   },
+   "quant_kv": {
+    "d64_bf16": {
+     "file": "quant_kv_d64_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d64_f16": {
+     "file": "quant_kv_d64_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d96_bf16": {
+     "file": "quant_kv_d96_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 512,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d96_f16": {
+     "file": "quant_kv_d96_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 512,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d128_bf16": {
+     "file": "quant_kv_d128_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d128_f16": {
+     "file": "quant_kv_d128_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_bf16": {
+     "file": "quant_kv_d256_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_f16": {
+     "file": "quant_kv_d256_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    }
+   }
+  },
+  "gfx1201": {
+   "attn": {
+    "d64_bf16": {
+     "file": "attn_d64_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d64_bf16_causal": {
+     "file": "attn_d64_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d64_f16": {
+     "file": "attn_d64_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d64_f16_causal": {
+     "file": "attn_d64_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_bf16": {
+     "file": "attn_d96_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_bf16_causal": {
+     "file": "attn_d96_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_f16": {
+     "file": "attn_d96_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d96_f16_causal": {
+     "file": "attn_d96_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_bf16": {
+     "file": "attn_d128_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_bf16_causal": {
+     "file": "attn_d128_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_f16": {
+     "file": "attn_d128_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d128_f16_causal": {
+     "file": "attn_d128_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 256,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_bf16": {
+     "file": "attn_d256_bf16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_bf16_causal": {
+     "file": "attn_d256_bf16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_f16": {
+     "file": "attn_d256_f16.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    },
+    "d256_f16_causal": {
+     "file": "attn_d256_f16_causal.hsaco",
+     "name": "flash_attn_func_sage_kernel_0",
+     "args": "<4Q3i4x6Q2i",
+     "block_m": 128,
+     "threads": 256,
+     "shared": 0
+    }
+   },
+   "quant_q": {
+    "d64_bf16": {
+     "file": "quant_q_d64_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d64_f16": {
+     "file": "quant_q_d64_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d96_bf16": {
+     "file": "quant_q_d96_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 128,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d96_f16": {
+     "file": "quant_q_d96_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 128,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d128_bf16": {
+     "file": "quant_q_d128_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d128_f16": {
+     "file": "quant_q_d128_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_bf16": {
+     "file": "quant_q_d256_bf16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_f16": {
+     "file": "quant_q_d256_f16.hsaco",
+     "name": "_quant_q_kernel",
+     "args": "<4Q5i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    }
+   },
+   "quant_kv": {
+    "d64_bf16": {
+     "file": "quant_kv_d64_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d64_f16": {
+     "file": "quant_kv_d64_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 8192,
+     "rot": true,
+     "rot_block": 64
+    },
+    "d96_bf16": {
+     "file": "quant_kv_d96_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 512,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d96_f16": {
+     "file": "quant_kv_d96_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 512,
+     "rot": false,
+     "rot_block": 128
+    },
+    "d128_bf16": {
+     "file": "quant_kv_d128_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d128_f16": {
+     "file": "quant_kv_d128_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_bf16": {
+     "file": "quant_kv_d256_bf16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    },
+    "d256_f16": {
+     "file": "quant_kv_d256_f16.hsaco",
+     "name": "_quant_kv_kernel",
+     "args": "<7Q9i4x2Q",
+     "rows": 32,
+     "threads": 128,
+     "shared": 32768,
+     "rot": true,
+     "rot_block": 128
+    }
+   }
+  }
+ }
+}

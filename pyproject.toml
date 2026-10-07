@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Same distribution and import name as SageAttention, so this one wheel substitutes a SageAttention install.
+# It ships two packages: `sageattention` (SageAttention 2.2 API) and `rdna4_sage` (the kernels and ComfyUI backend).
+name = "sageattention"
+version = "2.2.0+rdna4.0.2.0"
+description = "SageAttention 2.2 drop-in for AMD RDNA4 GPUs only (gfx1200/gfx1201, RX 9060/9070): ahead-of-time FlyDSL int8/fp8 attention kernels, Windows and Linux"
+keywords = ["attention", "sageattention", "rdna4", "gfx1200", "gfx1201", "rocm", "comfyui"]
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+# torch must be a ROCm build (TheRock / rocm wheels); the CUDA/CPU builds have no HIP runtime to launch into.
+dependencies = ["torch>=2.10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+rdna4_sage = ["kernels/manifest.json", "kernels/*/*.hsaco"]

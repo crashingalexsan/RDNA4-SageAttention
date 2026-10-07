@@ -1,0 +1,29 @@
+# Python packages for the kernel BUILD environment (Linux / WSL only). Not needed to use the wheel.
+# Versions are the ones the shipped code objects were built with (2026-10-07, Ubuntu 26.04.1 under WSL, ROCm 10.1).
+# FlyDSL itself is not listed: it is built from source, see README.md in this directory.
+#
+#   python3.14 -m venv ~/flypr && source ~/flypr/bin/activate
+#   pip install -r requirements.txt
+
+--index-url https://stable.repo.amd.com/rocm/pytorch/whl-next/
+--extra-index-url https://stable.repo.amd.com/rocm/core/whl-next/
+--extra-index-url https://pypi.org/simple
+
+# ROCm torch + Triton: FlyDSL's tracer imports torch, the quantize kernels are compiled with Triton for ROCm.
+torch==2.14.0+rocm10.1.0
+triton==3.8.0+git669b31ac.rocm10.1.0
+# device code wheels torch needs to run on the GPU (gfx1201 here; use the -gfx1200 names on an RX 9060)
+amd-torch-device-gfx1201==2.14.0+rocm10.1.0
+amd-torch-device-gfx12-0==2.14.0+rocm10.1.0
+rocm-sdk-device-gfx1201==10.1.0
+
+# FlyDSL / LLVM-MLIR source build tooling (scripts/build_llvm.sh and scripts/build.sh in the FlyDSL checkout)
+cmake==4.4.4
+ninja==1.13.2
+nanobind==2.12.0
+pybind11==3.1.0
+numpy==2.5.3
+patchelf==0.19.1.0
+
+# building the wheel
+setuptools>=68

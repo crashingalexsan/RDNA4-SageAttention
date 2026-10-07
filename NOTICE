@@ -1,0 +1,13 @@
+rdna4-sage
+Copyright 2026 Alejandro
+
+This product includes software derived from FlyDSL (https://github.com/ROCm/FlyDSL),
+Copyright 2025 FlyDSL Project Contributors, licensed under the Apache License, Version 2.0.
+
+The attention kernel is generated from the gfx120x FP8 flash attention kernel in FlyDSL pull request
+#1223 ("Add gfx120x RDNA4 wave32 ops", head commit 59219efcc3c9a780bf080af811048f95081bc8f3, an unmerged
+draft at the time of building) by the transforms in kernel_build/make_sage*.py. The compiled code objects in
+src/rdna4_sage/kernels were produced from that source with FlyDSL and Triton.
+
+The quantization scheme follows the SageAttention2 design (int8 Q K^T, fp8 P V; https://github.com/thu-ml/SageAttention);
+no SageAttention code is included.
