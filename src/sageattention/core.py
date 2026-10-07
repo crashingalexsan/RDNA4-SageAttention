@@ -10,7 +10,6 @@ import math
 from typing import Any, Optional
 
 import torch
-import torch.nn.functional as F
 
 import rdna4_sage
 

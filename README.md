@@ -92,14 +92,14 @@ cd rdna4-sage
 python -m pip wheel . -w dist --no-deps
 ```
 
-This writes `dist/sageattention-2.2.0+rdna4.0.2.0-py3-none-any.whl` (pure Python + code objects, one wheel for every
+This writes `dist/sageattention-2.2.0+rdna4.0.2.1-py3-none-any.whl` (pure Python + code objects, one wheel for every
 Python version and both OSes). Skip this step if you already have the wheel.
 
 ### 2. Install it into the Python that runs ComfyUI
 
 ```
 python -m pip uninstall -y sageattention
-python -m pip install --no-deps dist/sageattention-2.2.0+rdna4.0.2.0-py3-none-any.whl
+python -m pip install --no-deps dist/sageattention-2.2.0+rdna4.0.2.1-py3-none-any.whl
 ```
 
 Use ComfyUI's venv python (`venv\Scripts\python.exe` on Windows, `python_embeded\python.exe` for the portable build).
@@ -111,7 +111,7 @@ Use ComfyUI's venv python (`venv\Scripts\python.exe` on Windows, `python_embeded
 python -c "import sageattention, rdna4_sage; print(sageattention.__version__, rdna4_sage.is_available())"
 ```
 
-should print `2.2.0+rdna4.0.2.0 True`. `False` means the GPU is not gfx1200/gfx1201 or torch is not a ROCm build;
+should print `2.2.0+rdna4.0.2.1 True`. `False` means the GPU is not gfx1200/gfx1201 or torch is not a ROCm build;
 every call then runs torch SDPA.
 
 ### 4. Use it

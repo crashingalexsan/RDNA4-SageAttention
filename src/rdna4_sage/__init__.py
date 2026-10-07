@@ -9,14 +9,17 @@ runtime of a ROCm build of torch. Works on Windows and Linux with no compiler, T
 import os
 
 import torch
-import torch.nn.functional as F
 from torch.nn.attention.bias import causal_lower_right
 
 from . import ops
 from ._attention import ARCHS, HEAD_DIMS, Unsupported, check_supported, device_arch
 
 __all__ = ["sageattn", "attention", "is_available", "Unsupported", "ARCHS", "HEAD_DIMS"]
-__version__ = "0.2.0"
+__version__ = "0.2.1"
+
+# The C binding behind F.scaled_dot_product_attention. Apps such as SD.Next replace F.scaled_dot_product_attention
+# with sageattn, so falling back through F would call back into sageattn forever.
+_torch_sdpa = torch._C._nn.scaled_dot_product_attention
 
 # Calls below these sizes run torch SDPA: the fixed quantization pass costs more than int8 attention saves.
 MIN_WORK = int(os.environ.get("RDNA4_SAGE_MIN_WORK", 64 * 2**20))  # batch * heads * q_len * kv_len
@@ -51,7 +54,7 @@ def _sdpa(q, k, v, tensor_layout, is_causal, sm_scale, attn_mask):
         else:
             attn_mask = (attn_mask.masked_fill(~causal, float("-inf")) if attn_mask.dtype != torch.bool else attn_mask & causal)
         is_causal = False
-    out = F.scaled_dot_product_attention(q, k, v, attn_mask=attn_mask, is_causal=is_causal, scale=sm_scale, enable_gqa=gqa)
+    out = _torch_sdpa(q, k, v, attn_mask=attn_mask, is_causal=is_causal, scale=sm_scale, enable_gqa=gqa)
     return out.transpose(1, 2) if tensor_layout == "NHD" else out
 
 

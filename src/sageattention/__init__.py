@@ -10,4 +10,4 @@ from .core import sageattn_qk_int8_pv_fp8_cuda
 from .core import sageattn_qk_int8_pv_fp8_cuda_sm90
 from .core import sageattn_qk_int8_pv_gfx12_native
 
-__version__ = "2.2.0+rdna4.0.2.0"
+__version__ = "2.2.0+rdna4.0.2.1"
